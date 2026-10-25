@@ -6,7 +6,7 @@ deliberate: it means it runs free forever on GitHub Pages and you can edit it
 with any text editor.
 
 ```
-ember-and-ewe/
+el-sayed-el-masri/
 ├── index.html        Home — hero, how it works, the blanket designer, gallery
 ├── about.html        About Me (placeholder text for you to replace)
 ├── contact.html      Contact form + FAQ
@@ -25,7 +25,7 @@ Double-click `index.html`. It opens in your browser and works.
 To be safe (some browsers restrict local files), serve it instead:
 
 ```bash
-cd ember-and-ewe
+cd el-sayed-el-masri
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -72,25 +72,25 @@ GitHub Pages hosts static sites for free with HTTPS included. No credit card.
 **One-time setup**
 
 1. Make a free account at [github.com](https://github.com).
-2. Click **+ → New repository**. Name it `ember-and-ewe`. Set it **Public**
+2. Click **+ → New repository**. Name it `el-sayed-el-masri`. Set it **Public**
    (Pages is free on private repos only with a paid plan). Don't add a README —
    you already have one. Click **Create**.
 3. Back in your terminal:
 
 ```bash
-cd ember-and-ewe
+cd el-sayed-el-masri
 git init
 git add .
 git commit -m "Initial site"
 git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/ember-and-ewe.git
+git remote add origin https://github.com/YOUR-USERNAME/el-sayed-el-masri.git
 git push -u origin main
 ```
 
 4. In the repo on github.com: **Settings → Pages**. Under *Source*, choose
    **Deploy from a branch**, branch `main`, folder `/ (root)`. **Save**.
 5. Wait about a minute. Your site is live at
-   `https://YOUR-USERNAME.github.io/ember-and-ewe/`
+   `https://YOUR-USERNAME.github.io/el-sayed-el-masri/`
 
 **Every update after that**
 
