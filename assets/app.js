@@ -1,5 +1,5 @@
 /* ==========================================================================
-   E&E Knits — site behavior
+   El-Sayed El-Masri — site behavior
    Plain JS, no build step, no dependencies. Works on any static host.
    ==========================================================================
 
