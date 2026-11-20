@@ -7,12 +7,12 @@ with any text editor.
 
 ```
 ember-and-ewe/
-├── index.html        Home — hero, how it works, the blanket designer, gallery
+├── index.html        Home (header only until new content arrives)
 ├── about.html        About Me (placeholder text for you to replace)
 ├── contact.html      Contact form + FAQ
 ├── assets/
 │   ├── styles.css    All styling
-│   └── app.js        Color picker, price math, form sending — CONFIG at the top
+│   └── app.js        Sizes/prices config, form sending — CONFIG at the top
 └── README.md         This file
 ```
 
@@ -41,27 +41,9 @@ Everything configurable lives in the `CONFIG` block at the top of
 |---|---|
 | **Your email address** | `CONFIG.email` in `assets/app.js` (currently your Gmail — swap it for a business address if you'd rather not publish that one) |
 | **Prices and sizes** | `CONFIG.sizes` — the page recalculates automatically |
-| **Fee per extra color** | `CONFIG.extraColorFee` (currently $20) |
-| **Yarn colors / hex values** | `CONFIG.yarns` |
 | **Business name** | Search all three `.html` files for `E&amp;E Knits` and replace |
 | **About Me text** | `about.html` — all placeholder, marked with tan boxes |
 | **FAQ answers** | `contact.html` — two answers are marked *edit this* |
-| **Gallery photos** | `index.html`, in the `#gallery` section — instructions in a comment there |
-
-### Swapping the fake blankets for real photos
-
-The colored rectangles are CSS, not images. To use a real photo:
-
-```html
-<!-- before -->
-<div class="blanket" data-colors="#4F7942,#E8B93B" aria-hidden="true"></div>
-
-<!-- after -->
-<img src="assets/meadow-throw.jpg" alt="Green and yellow knit throw" class="blanket">
-```
-
-Put the image files in `assets/`. Resize them to about 1200px wide first —
-large photos are the number one cause of slow sites.
 
 ---
 
@@ -167,10 +149,9 @@ per size (Throw / Twin / Queen), then paste the URLs into
 `CONFIG.stripeLinks` in `assets/app.js`. A **"Pay now by card"** button
 appears under the order form automatically — the code for it is already there.
 
-To capture which colors they picked, add a custom field to the payment link in
-Stripe (Dashboard → the link → *Custom fields* → add a text field called
-"Colors"), and tell customers to copy their selection in. Slightly clunky, but
-free and instant.
+To capture which blanket they picked, add a custom field to the payment link
+in Stripe (Dashboard → the link → *Custom fields* → add a text field called
+"Blanket"). Slightly clunky, but free and instant.
 
 Fees: 2.9% + 30¢ per charge. Payouts hit your bank in ~2 days.
 
@@ -179,7 +160,7 @@ Fees: 2.9% + 30¢ per charge. Payouts hit your bank in ~2 days.
 If you get busy enough that inventory, shipping labels, and tax tracking start
 eating your evenings:
 
-- **Shopify** (~$39/mo) — has native "product options" so customers pick colors as part of checkout. Best fit for custom work, worst fit for a low-volume budget.
+- **Shopify** (~$39/mo) — has native "product options" so customers pick a blanket and size at checkout. Best fit for custom work, worst fit for a low-volume budget.
 - **Etsy** — no monthly fee, ~6.5% + listing fees, but brings its own buyers. Many makers run Etsy *and* a site like this one, and link between them.
 - **Square Online** — free tier with a Square-branded subdomain.
 
@@ -219,13 +200,4 @@ evenings.
 ## Notes on the code
 
 - No dependencies, no build step. Edit a file, refresh, done.
-- The blanket previews are generated with CSS gradients — `stripes()` in
-  `app.js` builds a repeating gradient from the chosen hex values, and a
-  crossing-diagonal overlay in `styles.css` fakes the knit stitch texture.
-- The three-color limit is `CONFIG.maxColors`. Change it and the counter,
-  the disabling, the price math, and the announcements all follow.
-- Colors are stored in pick order, so the stripe sequence matches the order
-  the customer clicked them in.
-- Keyboard and screen-reader accessible: swatches are real buttons with
-  `aria-pressed`, selections are announced through a live region, and there's
-  a skip link.
+- Keyboard and screen-reader accessible, with a skip link.
